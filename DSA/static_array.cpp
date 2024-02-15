@@ -1,10 +1,10 @@
-#include<iostream>
+ #include<iostream>
 #include<conio.h>
 using namespace std;
 #define size 8
 int pos,i,data,arr[size],special;
 int ui,li=-1;
-
+//This includes Insertion of data to an existing array
 void takedata(){
 	cout<<"enter data for array arr"<<endl;
 	cin>>arr[data];
@@ -26,10 +26,15 @@ int main() {
 	
 	ui+=1;
 	i=ui;
-	while(i>=pos){
+//	while(i>=pos){
+//		arr[i+1]=arr[i];
+//		i=i-1;
+//	}
+	
+	for(i=ui;i>=pos;i--){
 		arr[i+1]=arr[i];
-		i=i-1;
 	}
+	
 	arr[ui]=special;
 	ui+=1;
 	
