@@ -6,6 +6,7 @@ using namespace std;
 	
 	int queue[max],front=0,rear=-1;
 	
+	//you can consider rear as if it moves based on the data items are entered 
 	void enqueue(int data){
 		if(rear==max-1){
 			cout<<"queue is underflow"<<endl;
