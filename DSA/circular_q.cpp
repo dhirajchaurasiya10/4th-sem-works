@@ -8,7 +8,7 @@ int rear=-1;
 int item[max];
 
 void enq(int x){
-    if(front==((rear+1)%max)){
+    if((front==0 && rear==max-1)||front==rear+1){
         cout<<"queue is overflow"<<endl;
     }
     else if(front==-1 || rear==-1){
@@ -20,6 +20,7 @@ void enq(int x){
             rear=(rear+1)%max;
             cout<<x<<" added to queue"<<endl;
         }
+//        item[rear]=x;
 }
 
 void deq() {
@@ -36,16 +37,22 @@ void deq() {
 }
 
 void display(){
-    cout<<"displaying queue"<<endl;
-    int i = front;
-    while (i != rear) {
-        cout<<item[i]<<endl;
-        i = (i + 1) % max;
+    for(int i=front;i<=rear;i++){
+        cout<<item[i]<<" ";
     }
+    int i=front;
+    if(front>rear){
+    do{
+        cout<<item[i]<<" ";
+        i=(i+1)%max;
+    }while(i!=front);
+    }
+    cout<<endl;
+    cout<<"Front : "<<front<<"  Rear : "<<rear<<endl;
 }
 
 int main(){
-    enq(5);
+    enq(10);
     enq(3);
     enq(4);
     enq(9);
