@@ -5,9 +5,9 @@ using namespace std;
 
 struct node {
 	int data;
-	struct node *link,*current;			//reallocation
+	struct node *link;			//reallocation
 };	
-struct node *head;
+struct node *head,*current;
 
 int main(){
 
