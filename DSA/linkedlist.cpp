@@ -21,8 +21,9 @@ int main(){
 	current->link=NULL;
 	head->link=current;
 	
-	current=malloc(sizeof(struct node));
-	current->data=	3;
-	current->link=NULL;
-	head->link->link=current;
+	cout<<head->data<<endl<<head->link;
+	cout<<endl<<current->data<<endl<<current->link<<endl;
+	
+
+	cout<<head->link->link; 	//this will give the same output as like line 25.
 }
