@@ -1,45 +1,57 @@
- #include<iostream>
+#include<iostream>
 #include<conio.h>
 using namespace std;
+
 #define size 8
-int pos,i,data,arr[size],special;
-int ui,li=-1;
-//This includes Insertion of data to an existing array
-void takedata(){
-	cout<<"enter data for array arr"<<endl;
-	cin>>arr[data];
-	data+=1;
+
+int pos, index, arr[size], special;
+int ui = size - 1; // Initialize ui to the last index of the array
+int li = -1;
+
+// Function to take data for array
+void takedata() {
+    cout << "Enter data for array arr" << endl;
+    cin >> arr[index];
+    index += 1;
 }
 
+// Function to display array elements
 void display() {
-	for(int i=0;i<size; i++) {
-		cout<<arr[i]<<endl;
-	}
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << endl;
+    }
 }
-int main() {
-	for(i=0;i<size-1;i++){
-		takedata();
-	}
-	
-	cout<<"enter the data and it's position to be inserted at "<<endl;
-	cin>>special>>pos;
-	
-	ui+=1;
-	i=ui;
-//	while(i>=pos){
-//		arr[i+1]=arr[i];
-//		i=i-1;
-//	}
-	
-	for(i=ui;i>=pos;i--){
-		arr[i+1]=arr[i];
-	}
-	
-	arr[ui]=special;
-	ui+=1;
-	
-	cout<<ui<<" "<<arr[ui]<<endl;
-	cout<<endl<<"displaying the array"<<endl;
 
-display();
+int main() {
+    // Take data for array
+    for (int i = 0; i < size; i++) {
+        takedata();
+    }
+
+    // Input the special data and its position to be inserted at
+    cout << "Enter the data and its position to be inserted at" << endl;
+    cin >> special >> pos;
+
+    // Check if position is valid
+    if (pos < 0 || pos >= size) {
+        cout << "Invalid position!" << endl;
+        return 1; // Exit with error code
+    }
+
+    // Shift elements to the right to make space for the new element
+    for (int i = ui; i >= pos; i--) {
+        arr[i + 1] = arr[i];
+    }
+
+    // Insert the special data at the specified position
+    arr[pos] = special;
+
+    // Increment the upper index
+    ui += 1;
+
+    // Display the array
+    cout << endl << "Displaying the array" << endl;
+    display();
+
+    return 0;
 }
